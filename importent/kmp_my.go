@@ -1,42 +1,39 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func getNextArrayMy(arr []byte) []int {
 	next := []int{}
 
-	if len(arr) == 1 {
+	if len(arr) <= 1 {
 		return []int{-1}
 	}
 
 	next = append(next, -1)
 	next = append(next, 0)
 
-	index := 0
-	current := 2
-	for current < len(arr) {
-		if arr[index] == arr[current] {
-			current++
-			index++
-			next = append(next, index)
-		} else if index > 0 {
-
+	i := 2
+	cn := 0
+	for i < len(arr) {
+		if arr[cn] == arr[i-1] {
+			i++
+			cn++
+			next = append(next, cn)
+		} else if cn > 0 {
+			cn = next[cn]
 		} else {
-			current++
+			i++
+			next = append(next, cn)
 		}
-
 	}
 
 	return next
 }
 
-func getIndexOfMy(s string, m string) int {
-
-	return -1
-}
-
 func main() {
 
-	fmt.Println(getIndexOfMy("aaaaaaaaaaavvvvvvvvvvvvvv", "av"))
+	fmt.Println(getNextArrayMy([]byte("aaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")))
 
 }

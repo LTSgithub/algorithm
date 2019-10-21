@@ -10,10 +10,10 @@ import "fmt"
 */
 
 // 获取next数组
-func getNextArray(arrc []byte) []int {
+func getNextArray(arr []byte) []int {
 	next := []int{}
 
-	if len(arrc) == 1 {
+	if len(arr) == 1 {
 		return []int{-1}
 	}
 
@@ -21,9 +21,9 @@ func getNextArray(arrc []byte) []int {
 	next = append(next, 0)
 
 	i := 2
-	cn := 0
-	for i < len(arrc) {
-		if arrc[i-1] == arrc[cn] {
+	cn := 0 // 前一个位置上的最大值
+	for i < len(arr) {
+		if arr[i-1] == arr[cn] {
 			cn++
 			next = append(next, cn)
 			i++
@@ -71,6 +71,6 @@ func getIndexOf(s string, m string) int {
 
 func main() {
 
-	fmt.Println(getIndexOf("aaabaaaxy", "av"))
+	fmt.Println(getIndexOf("aaabaaaxy", "ax"))
 
 }
