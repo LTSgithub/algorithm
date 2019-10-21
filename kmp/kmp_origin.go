@@ -1,12 +1,15 @@
-package main
+package kmp
 
 import "fmt"
 
 /*
-	next数组：
+	# 例如求ss中是否由s，那么要先求s的next数组
+	# next数组：
 		1，某一个位置前面的所有的所有的最大相等的字符串的数目
 		2，如果数组小于等于1，那么next数组为{-1}
 		3，如果数组等于2，那么next数组为{-1，0}
+	# 加速原理
+
 */
 
 // 获取next数组
