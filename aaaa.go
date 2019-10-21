@@ -1,5 +1,8 @@
 package main
 
+/*******************************************************************************
+description: 递归获取数组最大值
+*********************************************************************************/
 func getMax(arr []int, l int, r int) int {
 
 	if l == r {
@@ -18,27 +21,4 @@ func getMax(arr []int, l int, r int) int {
 
 func main() {
 
-	//_, ok := aa[9]
-	//fmt.Println(ok)
-}
-
-var aa = map[int]bool{
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	//99999:true,
-	182: true,
-	961: true,
-	217: true,
-	9:   true,
 }

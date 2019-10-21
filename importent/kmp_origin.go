@@ -2,6 +2,42 @@ package main
 
 import "fmt"
 
+/*
+	next数组：
+		1，某一个位置前面的所有的所有的最大相等的字符串的数目
+		2，如果数组小于等于1，那么next数组为{-1}
+		3，如果数组等于2，那么next数组为{-1，0}
+*/
+
+// 获取next数组
+func getNextArray(arrc []byte) []int {
+	next := []int{}
+
+	if len(arrc) == 1 {
+		return []int{-1}
+	}
+
+	next = append(next, -1)
+	next = append(next, 0)
+
+	i := 2
+	cn := 0
+	for i < len(arrc) {
+		if arrc[i-1] == arrc[cn] {
+			cn++
+			next = append(next, cn)
+			i++
+		} else if cn > 0 {
+			cn = next[cn] //
+		} else {
+			next = append(next, 0)
+			i++
+		}
+	}
+
+	return next
+}
+
 func getIndexOf(s string, m string) int {
 	if len(s) < 1 || len(m) < 1 || len(s) < len(m) {
 		return -1
@@ -33,42 +69,8 @@ func getIndexOf(s string, m string) int {
 	return -1
 }
 
-// 获取next数组
-func getNextArray(arrc []byte) []int {
-	next := []int{}
-
-	if len(arrc) == 1 {
-		return []int{-1}
-	}
-
-	next = append(next, -1)
-	next = append(next, 0)
-
-	i := 2
-	cn := 0
-	for i < len(arrc) {
-		if arrc[i-1] == arrc[cn] {
-			cn++
-			next = append(next, cn)
-			i++
-		} else if cn > 0 {
-			cn = next[cn] //
-		} else {
-			next = append(next, 0)
-			i++
-		}
-	}
-
-	return next
-}
-
 func main() {
 
-	//fmt.Println(getIndexOf("aaabaaaxy", "av"))
-	str := "aaabaaaxy"
-	getNextArray([]byte(str))
+	fmt.Println(getIndexOf("aaabaaaxy", "av"))
 
-	// 			  0  1  2  3  4  5  6  7  8  9  10
-	arr := []int{-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 6} // kmp
-	fmt.Println(arr)
 }
