@@ -47,7 +47,7 @@ func getIndexOf(s string, m string) int {
 	str2 := []byte(m)
 
 	i1 := 0 // 代表原字符串，滑到的位置。i1会不停的往后滑动一直到结束。
-	i2 := 0 // 代表子串的当前位置，是动态变化的，不是一直往后滑动，取决于next数组的值。
+	i2 := 0 // 代表子串的当前位置，是动态变化的，不是一直往后滑动，取决于next数组的值。  ..
 
 	next := getNextArray(str2)
 
