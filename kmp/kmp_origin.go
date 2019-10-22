@@ -1,4 +1,4 @@
-package kmp
+package main
 
 import "fmt"
 
