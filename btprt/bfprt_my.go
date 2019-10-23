@@ -9,7 +9,13 @@ import (
 
 type Bfprt struct{}
 
+// 在数组arr中查找第k大的数
 func (m *Bfprt) GetTopk(arr []int, k int) int {
+
+	if k > len(arr) {
+		return 0
+	}
+
 	copyArr := make([]int, len(arr))
 	copy(copyArr, arr)
 	return m.bfprt(copyArr, 0, len(copyArr)-1, k-1)
