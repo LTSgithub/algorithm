@@ -21,7 +21,7 @@ func (m quick_sort_origin) partition(arr []int, l int, r int) []int {
 	for index < more {
 		if arr[index] < num {
 			less++
-			//m.swap(arr, less, index)
+			m.swap(arr, less, index)
 			index++
 		} else if arr[index] > num {
 			more--

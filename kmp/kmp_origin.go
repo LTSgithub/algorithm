@@ -1,18 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /*
-	# 例如求ss中是否由s，那么要先求s的next数组
-	# next数组：
-		1，某一个位置前面的所有的所有的最大相等的字符串的数目
-		2，如果数组小于等于1，那么next数组为{-1}
-		3，如果数组等于2，那么next数组为{-1，0}
-	# 加速原理
-
+	标准求解方法
 */
 
-// 获取next数组
 func getNextArray(arr []byte) []int {
 	next := []int{}
 
@@ -24,7 +19,7 @@ func getNextArray(arr []byte) []int {
 	next = append(next, 0)
 
 	i := 2
-	cn := 0 // 前一个位置上的最大值
+	cn := 0 // 前一个位置上的相等的最长前缀和最长后缀最大值
 	for i < len(arr) {
 		if arr[i-1] == arr[cn] {
 			cn++
@@ -58,7 +53,7 @@ func getIndexOf(s string, m string) int {
 		if str1[i1] == str2[i2] {
 			i1++
 			i2++
-		} else if next[i2] == -1 { // 为什么 i1++  ：因为字串的next已经走到了头，说明字串也走到了第一个字符。依然没有找到相等的，i1++要继续往后滑动来找下一个数据
+		} else if next[i2] == -1 { // 为什么 i1++  ：因为子串的next已经走到了头，说明字串也走到了第一个字符。依然没有找到相等的，i1++要继续往后滑动来找下一个数据
 			i1++
 		} else {
 			i2 = next[i2]
