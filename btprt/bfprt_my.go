@@ -7,6 +7,9 @@ import (
 	"sort"
 )
 
+/*
+	时间复杂度：参考01.png
+*/
 type Bfprt struct{}
 
 // 在数组arr中查找第k大的数
