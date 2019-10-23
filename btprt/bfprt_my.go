@@ -39,13 +39,10 @@ func (m *Bfprt) bfprt(arr []int, begin int, end int, i int) int {
 	} else {
 		return m.bfprt(arr, pivotRang[1]+1, end, i)
 	}
-
 }
 
 func (m Bfprt) swap(ii []int, x int, y int) {
-	t := ii[x]
-	ii[x] = ii[y]
-	ii[y] = t
+	ii[x], ii[y] = ii[y], ii[x]
 }
 
 func (m Bfprt) partition(arr []int, l int, r int, num int) []int {
@@ -74,7 +71,6 @@ func (m *Bfprt) medianOfMedian(arr []int, begin int, end int) int {
 	}
 
 	num := end - begin + 1
-
 	offset := num % 5
 	if offset != 0 {
 		offset = 1
