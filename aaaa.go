@@ -1,7 +1,11 @@
 package main
 
+import "fmt"
+
 /*******************************************************************************
-description: 递归获取数组最大值
+ps:
+	1，求数组内最大值
+	2，使用递归
 *********************************************************************************/
 func getMax(arr []int, l int, r int) int {
 
@@ -20,5 +24,9 @@ func getMax(arr []int, l int, r int) int {
 }
 
 func main() {
+
+	arr := []int{1, 2, 3, 4, 56, 7, 89, 100}
+
+	fmt.Println(getMax(arr, 0, len(arr)-1))
 
 }
