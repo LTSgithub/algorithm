@@ -5,15 +5,6 @@ package main
 	经典的哈夫曼编码问题
 */
 
-type name 
+func main() {
 
-
-func ()  {
-	
-}
-
-
-
-func main()  {
-	
 }
